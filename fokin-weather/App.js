@@ -1,54 +1,42 @@
-import React from 'react';
-import { Alert } from "react-native";
-import * as Location from "expo-location";
-import Loading from './Loading'
-import Weather from './Weather'
-import axios from "axios";
-import { StyleSheet, Text, View } from 'react-native';
+import React, {Component} from 'react';
+import {createAppContainer} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation-stack';
+import {createBottomTabNavigator} from 'react-navigation-tabs';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import firstpage from './Five';
+import secondpage from './Second';
+import thirdpage from './Third';
 
-const API_KEY = "e9a536d129048a0e2bd6447fe94c45c6";
+const App = createBottomTabNavigator(
+    {
+        Five: {screen:firstpage},
+        Ten: {screen:secondpage},
+        No: {screen:thirdpage},
 
-export default class extends React.Component {
-  state = {
-    isLoading: true
-  };
-  getWeather = async (latitude, longitude) => {
-    const {
-      data: {
-        main: { temp },
-        weather,
-        name
-      }
-    } = await axios.get(
-      `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&APPID=${API_KEY}&units=metric`
-    );
-    this.setState({
-      isLoading: false,
-      condition: weather[0].main,
-      temp,
-      name
-    });
-  };
-  getLocation = async () => {
-    try {
-      await Location.requestPermissionsAsync();
-      const {
-        coords: { latitude, longitude }
-      } = await Location.getCurrentPositionAsync();
-      this.getWeather(latitude, longitude);
-    } catch (error) {
-      Alert.alert("Can't find you.", "So sad");
-    }
-  };
-  componentDidMount() {
-    this.getLocation();
-  }
-  render() {
-    const { isLoading, name, temp, condition } = this.state;
-    return isLoading ? (
-      <Loading />
-    ) : (
-      <Weather name={name} temp={Math.round(temp)} condition={condition} />
-    );
-  }
-}
+    },
+    {
+      defaultNavigationOptions: ({navigation}) => ({
+        tabBarIcon: ({horizontal, tintColor}) => {
+          const {routeName} = navigation.state;
+          let iconName;
+          if (routeName === 'Five') {
+            iconName = 'ios-school';
+          } else if (routeName === 'Ten') {
+            iconName = 'ios-school';
+          } else if (routeName === 'No') {
+            iconName = 'ios-car';
+          }
+          return (
+            <Ionicons
+              name={iconName}
+              size={horizontal ? 20 : 25}
+              color={tintColor}
+            />
+          );
+        },
+      }),
+    }, 
+);
+
+export default createAppContainer(App);
+
