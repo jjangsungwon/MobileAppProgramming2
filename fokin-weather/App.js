@@ -12,10 +12,10 @@ const App = createBottomTabNavigator(
         Five: {screen:firstpage},
         Ten: {screen:secondpage},
         No: {screen:thirdpage},
-
     },
     {
       defaultNavigationOptions: ({navigation}) => ({
+       
         tabBarIcon: ({horizontal, tintColor}) => {
           const {routeName} = navigation.state;
           let iconName;
@@ -35,6 +35,13 @@ const App = createBottomTabNavigator(
           );
         },
       }),
+      tabBarOptions: {
+        activeTintColor: 'white',
+        inactiveTintColor: 'gray',
+        style: {
+          backgroundColor: 'black',
+        },
+      },
     }, 
 );
 
