@@ -18,6 +18,7 @@ export default class Second extends Component {
         isLoading: true
         //search: '',
       };
+    
     getLocation_2 = async (latitude, longitude) =>{
         const {
             data: {
@@ -235,9 +236,9 @@ export default class Second extends Component {
             hour_23_temp, hour_23_main, hour_23_description, hour_23_icon, // 23시
             hour_24_temp, hour_24_main, hour_24_description, hour_24_icon, // 24시
              } = this.state;
-        return isLoading ? (
+        return  isLoading ? (
             <Loading />
-        ) : (
+          ) : (
             <Weathers 
                 hour_0_temp = {hour_0_temp} hour_0_main = {hour_0_main} hour_0_description = {hour_0_description} hour_0_icon = {hour_0_icon} // 0시
                 hour_1_temp = {hour_1_temp} hour_1_main = {hour_1_main} hour_1_description = {hour_1_description} hour_1_icon = {hour_1_icon} // 1시
@@ -264,7 +265,7 @@ export default class Second extends Component {
                 hour_22_temp = {hour_22_temp} hour_22_main = {hour_22_main} hour_22_description = {hour_22_description} hour_22_icon = {hour_22_icon} // 22시
                 hour_23_temp = {hour_23_temp} hour_23_main = {hour_23_main} hour_23_description = {hour_23_description} hour_23_icon = {hour_23_icon} // 23시
                 hour_24_temp = {hour_24_temp} hour_24_main = {hour_24_main} hour_24_description = {hour_24_description} hour_24_icon = {hour_24_icon} // 24시
-
+                
             />
         );
     }

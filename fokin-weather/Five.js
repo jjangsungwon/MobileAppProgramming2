@@ -45,6 +45,7 @@ export default class Five extends React.Component {
   }
   render() {
     const { isLoading, name, temp, condition } = this.state;
+    console.log(condition);
     return isLoading ? (
       <Loading />
     ) : (
