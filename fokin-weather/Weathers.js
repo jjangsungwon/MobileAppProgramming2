@@ -172,23 +172,12 @@ export default function Weathers({ isLoading,
           </View>
 
           <View style={styles.elem}>
-          <Col><Text style={styles.times}>오전 4시</Text></Col>
-          <Col><Text style={styles.temp}>{Math.round(hour_4_temp)}°</Text></Col>
-          <Col><Text style={styles.temp}>{weatherOption[hour_4_main].title}</Text></Col>
+          <Col><Text style={styles.times}>오전 5시</Text></Col>
+          <Col><Text style={styles.temp}>{Math.round(hour_5_temp)}°</Text></Col>
+          <Col><Text style={styles.temp}>{weatherOption[hour_5_main].title}</Text></Col>
           <Col><MaterialCommunityIcons
               size={56}
-              name={weatherOption[hour_4_main].iconName}
-              color="white"
-            /></Col>
-          </View>
-
-          <View style={styles.elem}>
-          <Col><Text style={styles.times}>오전 4시</Text></Col>
-          <Col><Text style={styles.temp}>{Math.round(hour_4_temp)}°</Text></Col>
-          <Col><Text style={styles.temp}>{weatherOption[hour_4_main].title}</Text></Col>
-          <Col><MaterialCommunityIcons
-              size={56}
-              name={weatherOption[hour_4_main].iconName}
+              name={weatherOption[hour_5_main].iconName}
               color="white"
             /></Col>
           </View>
