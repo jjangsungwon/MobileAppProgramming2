@@ -34,13 +34,20 @@ class ViewController: UIViewController {
         
         currentWeather = CurrentWeather()
         currentWeather.downloadCurrentWeather {
-           print("Data Downloaded")
+            self.updateUI()
         }
         
         //background color setting
         self.view.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
     }
     
+    // 받아온 데이터들로 업데이트 하는 함수
+    func updateUI(){
+        cityName.text = currentWeather.cityName
+        currentTemp.text = "\(currentWeather.currentTemp)"
+        weatherType.text = currentWeather.weatherType
+        currentDate.text = currentWeather.date
+    }
 
 }
 

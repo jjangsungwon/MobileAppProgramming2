@@ -44,9 +44,27 @@ class CurrentWeather {
     
     func downloadCurrentWeather(completed: @escaping DownloadComplete){
         Alamofire.request(API_URL).responseJSON { (response) in
-            print(response)
+            //print(response)
+            let result = response.result // SUCCESS OR NOT!
+            let json = JSON(result.value)
+            
+            // parsing step!
+            self._cityName = json["name"].stringValue
+            let tempDate = json["dt"].double
+            
+            // 올바른 날짜 형식으로 바꿔주기 위한 부분
+            let conversionDate = Date(timeIntervalSince1970: tempDate!)
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = .medium
+            dateFormatter.timeStyle = .none
+            
+            let currentDate = dateFormatter.string(from: conversionDate)
+            self._date = "\(currentDate)"
+            self._weatherType = json["weather"][0]["main"].stringValue // ex : Clouds, Clear, ...
+            let downloadedTemp = json["main"]["temp"].double
+            self._currentTemp = (downloadedTemp! - 273.15).rounded(toPlaces: 0) // F to C temp
+            completed()
         }
-        completed()
     }
     
 }
