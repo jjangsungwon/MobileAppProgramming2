@@ -19,7 +19,7 @@ const weatherOption = {
   },
   Rain: {
     iconName: "weather-rainy",
-    gradient: ["#00C6FB", "#005BEA"],
+    gradient: ["#D7D2CC", "#304352"],
     title: "비",
   },
   Snow: {
@@ -65,335 +65,100 @@ const weatherOption = {
 };
 
 
-export default function Weathers({ isLoading,
-  hour_0_temp, hour_0_main, hour_0_description, hour_0_icon, // 0시
-  hour_1_temp, hour_1_main, hour_1_description, hour_1_icon, // 1시
-  hour_2_temp, hour_2_main, hour_2_description, hour_2_icon, // 2시
-  hour_3_temp, hour_3_main, hour_3_description, hour_3_icon, // 3시
-  hour_4_temp, hour_4_main, hour_4_description, hour_4_icon, // 4시
-  hour_5_temp, hour_5_main, hour_5_description, hour_5_icon, // 5시
-  hour_6_temp, hour_6_main, hour_6_description, hour_6_icon, // 6시
-  hour_7_temp, hour_7_main, hour_7_description, hour_7_icon, // 7시
-  hour_8_temp, hour_8_main, hour_8_description, hour_8_icon, // 8시
-  hour_9_temp, hour_9_main, hour_9_description, hour_9_icon, // 9시
-  hour_10_temp, hour_10_main, hour_10_description, hour_10_icon, // 10시
-  hour_11_temp, hour_11_main, hour_11_description, hour_11_icon, // 11시
-  hour_12_temp, hour_12_main, hour_12_description, hour_12_icon, // 12시
-  hour_13_temp, hour_13_main, hour_13_description, hour_13_icon, // 13시
-  hour_14_temp, hour_14_main, hour_14_description, hour_14_icon, // 14시
-  hour_15_temp, hour_15_main, hour_15_description, hour_15_icon, // 15시
-  hour_16_temp, hour_16_main, hour_16_description, hour_16_icon, // 16시
-  hour_17_temp, hour_17_main, hour_17_description, hour_17_icon, // 17시
-  hour_18_temp, hour_18_main, hour_18_description, hour_18_icon, // 18시
-  hour_19_temp, hour_19_main, hour_19_description, hour_19_icon, // 19시
-  hour_20_temp, hour_20_main, hour_20_description, hour_20_icon, // 20시
-  hour_21_temp, hour_21_main, hour_21_description, hour_21_icon, // 21시
-  hour_22_temp, hour_22_main, hour_22_description, hour_22_icon, // 22시
-  hour_23_temp, hour_23_main, hour_23_description, hour_23_icon, // 23시
-  hour_24_temp, hour_24_main, hour_24_description, hour_24_icon, // 24시
-  name, // 위치
+export default function Weathers({ isLoading, temp_1, temp_2, temp_3, temp_4, temp_5, temp_6, temp_7, main_1, main_2, main_3, main_4, main_5, main_6, main_7, 
+  description_1, description_2, description_3, description_4, description_5, description_6, description_7 // 위치
 }) {
-
   return (
     <LinearGradient
-      colors={weatherOption[hour_0_main].gradient}
+      colors={weatherOption[main_1].gradient}
       style={styles.container}
-    >   
-      <ScrollView vertical={true}>
+    >  
       <View style={styles.container}>
-          <View style={styles.header}>
-            <Col><Text style={styles.temp2}>시간대별 날씨</Text></Col>
+          <View style={styles.header2}>
+              <Col><Text style={styles.temp2}>주간날씨</Text></Col>
+          </View>
+          <View style={styles.elem}>
+              <Col><Text style={styles.temp3}>Week forecast</Text></Col>
           </View>
 
           <View style={styles.elem}>
-            <Col><Text style={styles.times}>오전 0시</Text></Col>
-            <Col><Text style={styles.temp}>{Math.round(hour_0_temp)}°</Text></Col>
-            <Col><Text style={styles.temp}>{weatherOption[hour_0_main].title}</Text></Col>
+            <Col><Text style={styles.times}>오늘</Text></Col>
+            <Col><Text style={styles.temp}>{Math.round(temp_1)}°</Text></Col>
+            <Col><Text style={styles.temp}>{weatherOption[main_1].title}</Text></Col>
             <Col><MaterialCommunityIcons
               size={56}
-              name={weatherOption[hour_0_main].iconName}
+              style={{textAlign:"center"}}
+              name={weatherOption[main_1].iconName}
               color="white"
             /></Col>
           </View>
-
           <View style={styles.elem}>
-            <Col><Text style={styles.times}>오전 0시</Text></Col>
-            <Col><Text style={styles.temp}>{Math.round(hour_0_temp)}°</Text></Col>
-            <Col><Text style={styles.temp}>{weatherOption[hour_0_main].title}</Text></Col>
+            <Col><Text style={styles.times}>내일</Text></Col>
+            <Col><Text style={styles.temp}>{Math.round(temp_2)}°</Text></Col>
+            <Col><Text style={styles.temp}>{weatherOption[main_2].title}</Text></Col>
             <Col><MaterialCommunityIcons
               size={56}
-              name={weatherOption[hour_0_main].iconName}
+              style={{textAlign:"center"}}
+              name={weatherOption[main_2].iconName}
               color="white"
             /></Col>
           </View>
-
           <View style={styles.elem}>
-          <Col><Text style={styles.times}>오전 1시</Text></Col>
-          <Col><Text style={styles.temp}>{Math.round(hour_1_temp)}°</Text></Col>
-          <Col><Text style={styles.temp}>{weatherOption[hour_1_main].title}</Text></Col>
-          <Col><MaterialCommunityIcons
+            <Col><Text style={styles.times}>모레</Text></Col>
+            <Col><Text style={styles.temp}>{Math.round(temp_3)}°</Text></Col>
+            <Col><Text style={styles.temp}>{weatherOption[main_3].title}</Text></Col>
+            <Col><MaterialCommunityIcons
               size={56}
-              name={weatherOption[hour_1_main].iconName}
+              style={{textAlign:"center"}}
+              name={weatherOption[main_3].iconName}
               color="white"
             /></Col>
           </View>
-
           <View style={styles.elem}>
-          <Col><Text style={styles.times}>오전 2시</Text></Col>
-          <Col><Text style={styles.temp}>{Math.round(hour_2_temp)}°</Text></Col>
-          <Col><Text style={styles.temp}>{weatherOption[hour_2_main].title}</Text></Col>
-          <Col><MaterialCommunityIcons
+            <Col><Text style={styles.times}>4일뒤</Text></Col>
+            <Col><Text style={styles.temp}>{Math.round(temp_4)}°</Text></Col>
+            <Col><Text style={styles.temp}>{weatherOption[main_4].title}</Text></Col>
+            <Col><MaterialCommunityIcons
               size={56}
-              name={weatherOption[hour_2_main].iconName}
+              style={{textAlign:"center"}}
+              name={weatherOption[main_4].iconName}
               color="white"
             /></Col>
           </View>
-
           <View style={styles.elem}>
-          <Col><Text style={styles.times}>오전 3시</Text></Col>
-          <Col><Text style={styles.temp}>{Math.round(hour_3_temp)}°</Text></Col>
-          <Col><Text style={styles.temp}>{weatherOption[hour_3_main].title}</Text></Col>
-          <Col><MaterialCommunityIcons
+            <Col><Text style={styles.times}>5일뒤</Text></Col>
+            <Col><Text style={styles.temp}>{Math.round(temp_5)}°</Text></Col>
+            <Col><Text style={styles.temp}>{weatherOption[main_5].title}</Text></Col>
+            <Col><MaterialCommunityIcons
               size={56}
-              name={weatherOption[hour_3_main].iconName}
+              style={{textAlign:"center"}}
+              name={weatherOption[main_5].iconName}
               color="white"
             /></Col>
           </View>
-
           <View style={styles.elem}>
-          <Col><Text style={styles.times}>오전 4시</Text></Col>
-          <Col><Text style={styles.temp}>{Math.round(hour_4_temp)}°</Text></Col>
-          <Col><Text style={styles.temp}>{weatherOption[hour_4_main].title}</Text></Col>
-          <Col><MaterialCommunityIcons
+            <Col><Text style={styles.times}>6일뒤</Text></Col>
+            <Col><Text style={styles.temp}>{Math.round(temp_6)}°</Text></Col>
+            <Col><Text style={styles.temp}>{weatherOption[main_6].title}</Text></Col>
+            <Col><MaterialCommunityIcons
               size={56}
-              name={weatherOption[hour_4_main].iconName}
+              style={{textAlign:"center"}}
+              name={weatherOption[main_6].iconName}
               color="white"
             /></Col>
           </View>
-
           <View style={styles.elem}>
-          <Col><Text style={styles.times}>오전 5시</Text></Col>
-          <Col><Text style={styles.temp}>{Math.round(hour_5_temp)}°</Text></Col>
-          <Col><Text style={styles.temp}>{weatherOption[hour_5_main].title}</Text></Col>
-          <Col><MaterialCommunityIcons
+            <Col><Text style={styles.times}>7일뒤</Text></Col>
+            <Col><Text style={styles.temp}>{Math.round(temp_7)}°</Text></Col>
+            <Col><Text style={styles.temp}>{weatherOption[main_7].title}</Text></Col>
+            <Col><MaterialCommunityIcons
               size={56}
-              name={weatherOption[hour_5_main].iconName}
+              style={{textAlign:"center"}}
+              name={weatherOption[main_7].iconName}
               color="white"
             /></Col>
           </View>
-
-          <View style={styles.elem}>
-          <Col><Text style={styles.times}>오전 6시</Text></Col>
-          <Col><Text style={styles.temp}>{Math.round(hour_6_temp)}°</Text></Col>
-          <Col><Text style={styles.temp}>{weatherOption[hour_6_main].title}</Text></Col>
-          <Col><MaterialCommunityIcons
-              size={56}
-              name={weatherOption[hour_6_main].iconName}
-              color="white"
-            /></Col>
-          </View>
-
-          <View style={styles.elem}>
-          <Col><Text style={styles.times}>오전 7시</Text></Col>
-          <Col><Text style={styles.temp}>{Math.round(hour_7_temp)}°</Text></Col>
-          <Col><Text style={styles.temp}>{weatherOption[hour_7_main].title}</Text></Col>
-          <Col><MaterialCommunityIcons
-              size={56}
-              name={weatherOption[hour_7_main].iconName}
-              color="white"
-            /></Col>
-          </View>
-
-          <View style={styles.elem}>
-          <Col><Text style={styles.times}>오전 8시</Text></Col>
-          <Col><Text style={styles.temp}>{Math.round(hour_8_temp)}°</Text></Col>
-          <Col><Text style={styles.temp}>{weatherOption[hour_8_main].title}</Text></Col>
-          <Col><MaterialCommunityIcons
-              size={56}
-              name={weatherOption[hour_8_main].iconName}
-              color="white"
-            /></Col>
-          </View>
-
-          <View style={styles.elem}>
-          <Col><Text style={styles.times}>오전 9시</Text></Col>
-          <Col><Text style={styles.temp}>{Math.round(hour_9_temp)}°</Text></Col>
-          <Col><Text style={styles.temp}>{weatherOption[hour_9_main].title}</Text></Col>
-          <Col><MaterialCommunityIcons
-              size={56}
-              name={weatherOption[hour_9_main].iconName}
-              color="white"
-            /></Col>
-          </View>
-
-          <View style={styles.elem}>
-          <Col><Text style={styles.times}>오전 10시</Text></Col>
-          <Col><Text style={styles.temp}>{Math.round(hour_10_temp)}°</Text></Col>
-          <Col><Text style={styles.temp}>{weatherOption[hour_10_main].title}</Text></Col>
-          <Col><MaterialCommunityIcons
-              size={56}
-              name={weatherOption[hour_10_main].iconName}
-              color="white"
-            /></Col>
-          </View>
-
-          <View style={styles.elem}>
-          <Col><Text style={styles.times}>오전 11시</Text></Col>
-          <Col><Text style={styles.temp}>{Math.round(hour_11_temp)}°</Text></Col>
-          <Col><Text style={styles.temp}>{weatherOption[hour_11_main].title}</Text></Col>
-          <Col><MaterialCommunityIcons
-              size={56}
-              name={weatherOption[hour_11_main].iconName}
-              color="white"
-            /></Col>
-          </View>
-
-          <View style={styles.elem}>
-          <Col><Text style={styles.times}>오후 12시</Text></Col>
-          <Col><Text style={styles.temp}>{Math.round(hour_12_temp)}°</Text></Col>
-          <Col><Text style={styles.temp}>{weatherOption[hour_12_main].title}</Text></Col>
-          <Col><MaterialCommunityIcons
-              size={56}
-              name={weatherOption[hour_12_main].iconName}
-              color="white"
-            /></Col>
-          </View>
-
-          <View style={styles.elem}>
-          <Col><Text style={styles.times}>오후 1시</Text></Col>
-          <Col><Text style={styles.temp}>{Math.round(hour_13_temp)}°</Text></Col>
-          <Col><Text style={styles.temp}>{weatherOption[hour_13_main].title}</Text></Col>
-          <Col><MaterialCommunityIcons
-              size={56}
-              name={weatherOption[hour_13_main].iconName}
-              color="white"
-            /></Col>
-          </View>
-
-          <View style={styles.elem}>
-          <Col><Text style={styles.times}>오후 2시</Text></Col>
-          <Col><Text style={styles.temp}>{Math.round(hour_14_temp)}°</Text></Col>
-          <Col><Text style={styles.temp}>{weatherOption[hour_14_main].title}</Text></Col>
-          <Col><MaterialCommunityIcons
-              size={56}
-              name={weatherOption[hour_14_main].iconName}
-              color="white"
-            /></Col>
-          </View>
-
-          <View style={styles.elem}>
-          <Col><Text style={styles.times}>오후 3시</Text></Col>
-          <Col><Text style={styles.temp}>{Math.round(hour_15_temp)}°</Text></Col>
-          <Col><Text style={styles.temp}>{weatherOption[hour_15_main].title}</Text></Col>
-          <Col><MaterialCommunityIcons
-              size={56}
-              name={weatherOption[hour_15_main].iconName}
-              color="white"
-            /></Col>
-          </View>
-
-          <View style={styles.elem}>
-          <Col><Text style={styles.times}>오후 4시</Text></Col>
-          <Col><Text style={styles.temp}>{Math.round(hour_16_temp)}°</Text></Col>
-          <Col><Text style={styles.temp}>{weatherOption[hour_16_main].title}</Text></Col>
-          <Col><MaterialCommunityIcons
-              size={56}
-              name={weatherOption[hour_16_main].iconName}
-              color="white"
-            /></Col>
-          </View>
-
-          <View style={styles.elem}>
-          <Col><Text style={styles.times}>오후 5시</Text></Col>
-          <Col><Text style={styles.temp}>{Math.round(hour_17_temp)}°</Text></Col>
-          <Col><Text style={styles.temp}>{weatherOption[hour_17_main].title}</Text></Col>
-          <Col><MaterialCommunityIcons
-              size={56}
-              name={weatherOption[hour_17_main].iconName}
-              color="white"
-            /></Col>
-          </View>
-
-          <View style={styles.elem}>
-          <Col><Text style={styles.times}>오후 6시</Text></Col>
-          <Col><Text style={styles.temp}>{Math.round(hour_18_temp)}°</Text></Col>
-          <Col><Text style={styles.temp}>{weatherOption[hour_18_main].title}</Text></Col>
-          <Col><MaterialCommunityIcons
-              size={56}
-              name={weatherOption[hour_18_main].iconName}
-              color="white"
-            /></Col>
-          </View>
-
-          <View style={styles.elem}>
-          <Col><Text style={styles.times}>오후 7시</Text></Col>
-          <Col><Text style={styles.temp}>{Math.round(hour_19_temp)}°</Text></Col>
-          <Col><Text style={styles.temp}>{weatherOption[hour_19_main].title}</Text></Col>
-          <Col><MaterialCommunityIcons
-              size={56}
-              name={weatherOption[hour_19_main].iconName}
-              color="white"
-            /></Col>
-          </View>
-
-          <View style={styles.elem}>
-          <Col><Text style={styles.times}>오후 8시</Text></Col>
-          <Col><Text style={styles.temp}>{Math.round(hour_20_temp)}°</Text></Col>
-          <Col><Text style={styles.temp}>{weatherOption[hour_20_main].title}</Text></Col>
-          <Col><MaterialCommunityIcons
-              size={56}
-              name={weatherOption[hour_20_main].iconName}
-              color="white"
-            /></Col>
-          </View>
-
-          <View style={styles.elem}>
-          <Col><Text style={styles.times}>오후 9시</Text></Col>
-          <Col><Text style={styles.temp}>{Math.round(hour_21_temp)}°</Text></Col>
-          <Col><Text style={styles.temp}>{weatherOption[hour_21_main].title}</Text></Col>
-          <Col><MaterialCommunityIcons
-              size={56}
-              name={weatherOption[hour_21_main].iconName}
-              color="white"
-            /></Col>
-          </View>
-
-          <View style={styles.elem}>
-          <Col><Text style={styles.times}>오후 10시</Text></Col>
-          <Col><Text style={styles.temp}>{Math.round(hour_22_temp)}°</Text></Col>
-          <Col><Text style={styles.temp}>{weatherOption[hour_22_main].title}</Text></Col>
-          <Col><MaterialCommunityIcons
-              size={56}
-              name={weatherOption[hour_22_main].iconName}
-              color="white"
-            /></Col>
-          </View>
-
-          <View style={styles.elem}>
-          <Col><Text style={styles.times}>오후 11시</Text></Col>
-          <Col><Text style={styles.temp}>{Math.round(hour_23_temp)}°</Text></Col>
-          <Col><Text style={styles.temp}>{weatherOption[hour_23_main].title}</Text></Col>
-          <Col><MaterialCommunityIcons
-              size={56}
-              name={weatherOption[hour_23_main].iconName}
-              color="white"
-            /></Col>
-          </View>
-
-          <View style={styles.elem}>
-          <Col><Text style={styles.times}>내일 00시</Text></Col>
-          <Col><Text style={styles.temp}>{Math.round(hour_24_temp)}°</Text></Col>
-          <Col><Text style={styles.temp}>{weatherOption[hour_24_main].title}</Text></Col>
-          <Col><MaterialCommunityIcons
-              size={56}
-              name={weatherOption[hour_24_main].iconName}
-              color="white"
-            /></Col>
-          </View>
-          
-      </View>
-      
-      </ScrollView>
+        </View>
     </LinearGradient>
   );
 }
@@ -408,38 +173,59 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   header: {
-    marginTop:30,
+    marginTop:70,
     width: '100%',
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
     borderColor:'#eee',
     borderBottomWidth:0.5,
     padding: 5,
+    marginBottom:30,
+  },
+  header2: {
+    textAlign:"center",
+    marginTop:70,
+    width: '100%',
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 5,
+    marginBottom:30,
   },
   elem: {
     width: '100%',
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-start',
     borderColor:'#eee',
     borderBottomWidth:0.5,
     padding: 5,
   },
   times: {
+    textAlign:"center",
     alignItems: "center",
     fontSize: 15,
     color: "white"
   },
   temp: {
+    textAlign:"center",
     alignItems: "center",
     fontSize: 22,
     color: "white"
   },
   temp2: {
+    textAlign:"center",
     alignItems: "center",
-    fontSize: 30,
-    color: "black"
+    fontWeight: 'bold',
+    fontSize: 45,
+    color: "white"
+  },
+  temp3: {
+    marginTop:-30,
+    textAlign:"center",
+    marginLeft: 5,
+    alignItems: "center",
+    fontSize: 20,
+    color: "white"
   },
   halfContainer: {
     flex: 1,

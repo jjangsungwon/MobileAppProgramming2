@@ -4,13 +4,13 @@ import {createStackNavigator} from 'react-navigation-stack';
 import {createBottomTabNavigator} from 'react-navigation-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import firstpage from './Five';
-import secondpage from './Second';
+import secondpage from './SecondView';
 import thirdpage from './Third';
 
 const App = createBottomTabNavigator(
     {
-        Five: {screen:firstpage},
-        Ten: {screen:secondpage},
+        First: {screen:firstpage},
+        Second: {screen:secondpage},
         No: {screen:thirdpage},
     },
     {
@@ -19,9 +19,9 @@ const App = createBottomTabNavigator(
         tabBarIcon: ({horizontal, tintColor}) => {
           const {routeName} = navigation.state;
           let iconName;
-          if (routeName === 'Five') {
+          if (routeName === 'First') {
             iconName = 'ios-school';
-          } else if (routeName === 'Ten') {
+          } else if (routeName === 'Second') {
             iconName = 'ios-school';
           } else if (routeName === 'No') {
             iconName = 'ios-car';
