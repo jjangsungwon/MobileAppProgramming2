@@ -8,29 +8,22 @@
 
 import UIKit
 import CoreLocation
+import Alamofire
 
 @IBDesignable
-class ViewController: UIViewController, CLLocationManagerDelegate{
+class forecastViewController: UIViewController, CLLocationManagerDelegate{
 
     // Outlets
-    @IBOutlet weak var cityName: UILabel!
-    
-    @IBOutlet weak var weatherType: UILabel!
-    
-    @IBOutlet weak var weatherImage: UIImageView!
-    
-    @IBOutlet weak var currentTemp: UILabel!
-    
-    @IBOutlet weak var currentDate: UILabel!
-    
+    @IBOutlet weak var tableView: UITableView!
     // Constants
     let locationManager = CLLocationManager() // 사용자 위치 가져오기 위한 정의
-    
-
     // Variables
     var currentWeather: CurrentWeather!
     var currentLocation: CLLocation!
+    var forecastWeather: ForecastWeather!
+    var forecastArray = [ForecastWeather]()
     
+    var countFlag: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,16 +34,24 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         setupLocation()
         
         //background color setting
-        self.view.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+        self.view.backgroundColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         locationAuthCheck()
+        if self.countFlag == 0 {
+            downloadForecastWeather{
+                print("Data Downloaded")
+            }
+            self.countFlag = 1
+        }
     }
     
     // location -> (1)
     func callDelegate(){
         locationManager.delegate = self
+        tableView.delegate = self
+        tableView.dataSource = self
     }
     
     // location -> (2)
@@ -81,11 +82,42 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     
     // 받아온 데이터들로 업데이트 하는 함수
     func updateUI(){
-        cityName.text = currentWeather.cityName
-        currentTemp.text = "\(Int(currentWeather.currentTemp))"
-        weatherType.text = currentWeather.weatherType
-        currentDate.text = currentWeather.date
+        
+    }
+    
+    func downloadForecastWeather(completed: @escaping DownloadComplete){
+        Alamofire.request(FORECAST_API_URL).responseJSON{ (response) in
+            print(response)
+            let result = response.result
+            if let dictionary = result.value as? Dictionary<String, AnyObject> {
+                if let list = dictionary["daily"] as? [Dictionary<String, AnyObject>]{
+                    for item in list{
+                        let forecast = ForecastWeather(weatherDict: item)
+                        //if self.countFlag == 0 {
+                            self.forecastArray.append(forecast)
+                        //    self.countFlag = 1
+                        //}
+                    }
+                    self.forecastArray.remove(at: 0)
+                    self.tableView.reloadData()
+                }
+            }
+            completed()
+        }
     }
 
 }
 
+extension forecastViewController: UITableViewDelegate, UITableViewDataSource{
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ForecastCell") as! ForecastCell
+        cell.configureCell(forecastData: forecastArray[indexPath.row])
+        return cell
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return forecastArray.count
+    }
+}
