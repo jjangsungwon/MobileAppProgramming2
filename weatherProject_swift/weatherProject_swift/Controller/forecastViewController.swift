@@ -89,7 +89,7 @@ class forecastViewController: UIViewController, CLLocationManagerDelegate{
     
     func downloadForecastWeather(completed: @escaping DownloadComplete){
         Alamofire.request(FORECAST_API_URL).responseJSON{ (response) in
-            print(response)
+            //print(response)
             let result = response.result
             if let dictionary = result.value as? Dictionary<String, AnyObject> {
                 if let list = dictionary["daily"] as? [Dictionary<String, AnyObject>]{

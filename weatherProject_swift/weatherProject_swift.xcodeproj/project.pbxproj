@@ -21,6 +21,9 @@
 		64902C772493DD4800EA7A0D /* forecastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64902C762493DD4800EA7A0D /* forecastViewController.swift */; };
 		64902C792493E2FA00EA7A0D /* ForecastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64902C782493E2FA00EA7A0D /* ForecastCell.swift */; };
 		64902C7B2493F08100EA7A0D /* ForecastWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64902C7A2493F08100EA7A0D /* ForecastWeather.swift */; };
+		64AA39242494820C00D58F28 /* HourlyWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64AA39232494820C00D58F28 /* HourlyWeather.swift */; };
+		64AA392824949F4300D58F28 /* WeatherCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 64AA392624949F4300D58F28 /* WeatherCollectionViewCell.xib */; };
+		64AA39292494B62C00D58F28 /* WeatherCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64AA392524949F4300D58F28 /* WeatherCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +43,9 @@
 		64902C762493DD4800EA7A0D /* forecastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = forecastViewController.swift; sourceTree = "<group>"; };
 		64902C782493E2FA00EA7A0D /* ForecastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastCell.swift; sourceTree = "<group>"; };
 		64902C7A2493F08100EA7A0D /* ForecastWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastWeather.swift; sourceTree = "<group>"; };
+		64AA39232494820C00D58F28 /* HourlyWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyWeather.swift; sourceTree = "<group>"; };
+		64AA392524949F4300D58F28 /* WeatherCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCollectionViewCell.swift; sourceTree = "<group>"; };
+		64AA392624949F4300D58F28 /* WeatherCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherCollectionViewCell.xib; sourceTree = "<group>"; };
 		77223962D27E450140649489 /* Pods-weatherProject_swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-weatherProject_swift.debug.xcconfig"; path = "Target Support Files/Pods-weatherProject_swift/Pods-weatherProject_swift.debug.xcconfig"; sourceTree = "<group>"; };
 		E459F88434B9AD5392E3CF58 /* Pods_weatherProject_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_weatherProject_swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -106,6 +112,7 @@
 				64902C6E2493C0E200EA7A0D /* currentWeather.swift */,
 				64902C722493CC7600EA7A0D /* Location.swift */,
 				64902C7A2493F08100EA7A0D /* ForecastWeather.swift */,
+				64AA39232494820C00D58F28 /* HourlyWeather.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -114,6 +121,8 @@
 			isa = PBXGroup;
 			children = (
 				64902C782493E2FA00EA7A0D /* ForecastCell.swift */,
+				64AA392524949F4300D58F28 /* WeatherCollectionViewCell.swift */,
+				64AA392624949F4300D58F28 /* WeatherCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -215,6 +224,7 @@
 				64902C652493B8F900EA7A0D /* LaunchScreen.storyboard in Resources */,
 				64902C622493B8F900EA7A0D /* Assets.xcassets in Resources */,
 				64902C602493B8F600EA7A0D /* Main.storyboard in Resources */,
+				64AA392824949F4300D58F28 /* WeatherCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +285,8 @@
 				64902C7B2493F08100EA7A0D /* ForecastWeather.swift in Sources */,
 				64902C6D2493BFA900EA7A0D /* Extras.swift in Sources */,
 				64902C772493DD4800EA7A0D /* forecastViewController.swift in Sources */,
+				64AA39242494820C00D58F28 /* HourlyWeather.swift in Sources */,
+				64AA39292494B62C00D58F28 /* WeatherCollectionViewCell.swift in Sources */,
 				64902C5B2493B8F600EA7A0D /* SceneDelegate.swift in Sources */,
 				64902C732493CC7600EA7A0D /* Location.swift in Sources */,
 			);

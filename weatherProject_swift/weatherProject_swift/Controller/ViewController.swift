@@ -8,12 +8,12 @@
 
 import UIKit
 import CoreLocation
+import Alamofire
 
 /* 첫번째 화면에 들어가는 정보를 담당하는 컨트롤러 */
 
-@IBDesignable
 class ViewController: UIViewController, CLLocationManagerDelegate{
-
+    
     // Outlets
     @IBOutlet weak var cityName: UILabel!
     
@@ -25,33 +25,60 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     
     @IBOutlet weak var currentDate: UILabel!
     
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    
+    
     // Constants
     let locationManager = CLLocationManager() // 사용자 위치 가져오기 위한 정의
-    
 
     // Variables
     var currentWeather: CurrentWeather!
     var currentLocation: CLLocation!
     
+    // For Hourly Variables
+    var hourlyWeather: HourlyWeather!
+    var hourlyArray = [HourlyWeather]()
+    
+    var countFlag: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+      
+        collectionView.layer.shadowColor = UIColor.black.cgColor
+        collectionView.layer.shadowOpacity = 1
+        collectionView.layer.shadowOffset = CGSize(width: 3, height: 3.0)
+        collectionView.layer.shadowRadius = 10
+        collectionView.layer.shouldRasterize = true
+        
+        collectionView.layer.cornerRadius = 10
         
         currentWeather = CurrentWeather()
         callDelegate()
         setupLocation()
         
-       
+        // Collection View에 미리 만들어 놓은 Cell을 연결한 부분
+        self.collectionView.register(UINib(nibName: "WeatherCollectionViewCell", bundle:nil), forCellWithReuseIdentifier: "WeatherCollectionViewCell")
     }
     
     override func viewDidAppear(_ animated: Bool) {
         locationAuthCheck()
+        //
+        if self.countFlag == 0{
+            downloadHourlyWeather{
+                print("Data Downloaded")
+            }
+            self.countFlag = 1
+        }
     }
     
     // location -> (1)
     func callDelegate(){
         locationManager.delegate = self
+        //
+        collectionView.delegate = self
+        collectionView.dataSource = self
     }
     
     // location -> (2)
@@ -66,14 +93,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         if CLLocationManager.authorizationStatus() == .authorizedWhenInUse{
             // 스마트폰으로부터 위치 정보를 받아온다.
             currentLocation = locationManager.location
-            if currentLocation == nil{ // 임시용 nil 강제 처리
-                Location.sharedInstance.latitude = 36
-                Location.sharedInstance.longitude = 130
-            }
-            else {
-                Location.sharedInstance.latitude = currentLocation.coordinate.latitude
-                Location.sharedInstance.longitude = currentLocation.coordinate.longitude
-            }
+            
+            Location.sharedInstance.latitude = currentLocation.coordinate.latitude
+            Location.sharedInstance.longitude = currentLocation.coordinate.longitude
             
             // 위치정보를 모두 받은 뒤에, API data를 다운로드받는다.
             currentWeather.downloadCurrentWeather {
@@ -104,8 +126,50 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         else if currentWeather.weatherType == "Clear"{
             self.view.backgroundColor = #colorLiteral(red: 0.4146773815, green: 0.821454823, blue: 0.9594151378, alpha: 1)
         }
-        
+        else if currentWeather.weatherType == "Thunderstorm"{
+            self.view.backgroundColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
+        }
     }
-
+    
+    // 시간별 날씨예보 받는 부분
+    func downloadHourlyWeather(completed: @escaping DownloadComplete){
+        Alamofire.request(FORECAST_API_URL).responseJSON{ (response) in
+            let result = response.result
+            var loopCnt: Int = 0
+            if let dictionary = result.value as? Dictionary<String, AnyObject> {
+                if let list = dictionary["hourly"] as? [Dictionary<String, AnyObject>]{
+                    for item in list{
+                        if loopCnt > 13{
+                            break
+                        }
+                        let hourly = HourlyWeather(weatherDict: item)
+                        self.hourlyArray.append(hourly)
+                        loopCnt += 1
+                    }
+                    self.hourlyArray.remove(at: 0)
+                    self.collectionView.reloadData()
+                }
+            }
+            completed()
+        }
+    }
+    
 }
 
+extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: WeatherCollectionViewCell.identifier, for: indexPath) as! WeatherCollectionViewCell
+        cell.configureCell(HourlyData: hourlyArray[indexPath.row])
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return hourlyArray.count
+        // .count로 하지 않으면, index out of range 오류가 뜨니 조심하자
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize{
+        return CGSize(width:50, height:50)
+    }
+}
