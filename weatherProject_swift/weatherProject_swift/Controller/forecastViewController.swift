@@ -36,7 +36,7 @@ class forecastViewController: UIViewController, CLLocationManagerDelegate{
         setupLocation()
         
         //background color setting
-        self.view.backgroundColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
+        self.view.backgroundColor = #colorLiteral(red: 0.5361913443, green: 0.6659029126, blue: 0.1537538767, alpha: 1)
     }
     
     override func viewDidAppear(_ animated: Bool) {

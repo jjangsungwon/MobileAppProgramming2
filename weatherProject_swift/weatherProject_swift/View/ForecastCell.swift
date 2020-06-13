@@ -26,7 +26,7 @@ class ForecastCell: UITableViewCell {
     }
     
     func configureCell(forecastData: ForecastWeather){
-        self.forecastDay.text = "\(forecastData.date)" + "℃"
+        self.forecastDay.text = "\(forecastData.date)"
         self.forecastTemp.text = "\(Int(forecastData.temp))" + "℃"
         self.forecastImage.image = UIImage(named: forecastData.weather)
         
