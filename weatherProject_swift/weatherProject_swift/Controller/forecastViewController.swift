@@ -100,7 +100,7 @@ class forecastViewController: UIViewController, CLLocationManagerDelegate{
                         //    self.countFlag = 1
                         //}
                     }
-                    self.forecastArray.remove(at: 0)
+                    //self.forecastArray.remove(at: 0)
                     self.tableView.reloadData()
                 }
             }
