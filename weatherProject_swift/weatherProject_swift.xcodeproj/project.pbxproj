@@ -77,22 +77,62 @@
 		64902C572493B8F600EA7A0D /* weatherProject_swift */ = {
 			isa = PBXGroup;
 			children = (
+				64AA39202494711200D58F28 /* Extensions */,
+				64AA391F249470E200D58F28 /* Controller */,
+				64AA391E249470DE00D58F28 /* View */,
+				64AA391D249470DA00D58F28 /* Model */,
+				64AA391C249470C600D58F28 /* Extras */,
 				64902C582493B8F600EA7A0D /* AppDelegate.swift */,
 				64902C5A2493B8F600EA7A0D /* SceneDelegate.swift */,
-				64902C5C2493B8F600EA7A0D /* ViewController.swift */,
 				64902C5E2493B8F600EA7A0D /* Main.storyboard */,
 				64902C612493B8F900EA7A0D /* Assets.xcassets */,
 				64902C632493B8F900EA7A0D /* LaunchScreen.storyboard */,
 				64902C662493B8F900EA7A0D /* Info.plist */,
-				64902C6C2493BFA900EA7A0D /* Extras.swift */,
-				64902C6E2493C0E200EA7A0D /* currentWeather.swift */,
-				64902C702493C6DF00EA7A0D /* Extensions.swift */,
-				64902C722493CC7600EA7A0D /* Location.swift */,
-				64902C762493DD4800EA7A0D /* forecastViewController.swift */,
-				64902C782493E2FA00EA7A0D /* ForecastCell.swift */,
-				64902C7A2493F08100EA7A0D /* ForecastWeather.swift */,
 			);
 			path = weatherProject_swift;
+			sourceTree = "<group>";
+		};
+		64AA391C249470C600D58F28 /* Extras */ = {
+			isa = PBXGroup;
+			children = (
+				64902C6C2493BFA900EA7A0D /* Extras.swift */,
+			);
+			path = Extras;
+			sourceTree = "<group>";
+		};
+		64AA391D249470DA00D58F28 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				64902C6E2493C0E200EA7A0D /* currentWeather.swift */,
+				64902C722493CC7600EA7A0D /* Location.swift */,
+				64902C7A2493F08100EA7A0D /* ForecastWeather.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		64AA391E249470DE00D58F28 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				64902C782493E2FA00EA7A0D /* ForecastCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		64AA391F249470E200D58F28 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				64902C5C2493B8F600EA7A0D /* ViewController.swift */,
+				64902C762493DD4800EA7A0D /* forecastViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		64AA39202494711200D58F28 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				64902C702493C6DF00EA7A0D /* Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		707184CEBEBDA759F37D5990 /* Pods */ = {
@@ -312,7 +352,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -366,7 +406,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -382,12 +422,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9MH4U7N3AM;
 				INFOPLIST_FILE = weatherProject_swift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "kr.ac.knu.comp420.chanhui.weatherProject-swift";
+				PRODUCT_BUNDLE_IDENTIFIER = com.weatherProject.t1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -400,12 +442,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9MH4U7N3AM;
 				INFOPLIST_FILE = weatherProject_swift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "kr.ac.knu.comp420.chanhui.weatherProject-swift";
+				PRODUCT_BUNDLE_IDENTIFIER = com.weatherProject.t1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

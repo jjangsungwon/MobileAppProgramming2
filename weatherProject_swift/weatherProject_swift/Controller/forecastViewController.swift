@@ -10,6 +10,8 @@ import UIKit
 import CoreLocation
 import Alamofire
 
+/* 2번째 탭에 들어가는 주간 날씨 부분의 Controller */
+
 @IBDesignable
 class forecastViewController: UIViewController, CLLocationManagerDelegate{
 

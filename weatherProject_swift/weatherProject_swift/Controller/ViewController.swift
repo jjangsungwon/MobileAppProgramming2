@@ -9,6 +9,8 @@
 import UIKit
 import CoreLocation
 
+/* 첫번째 화면에 들어가는 정보를 담당하는 컨트롤러 */
+
 @IBDesignable
 class ViewController: UIViewController, CLLocationManagerDelegate{
 
