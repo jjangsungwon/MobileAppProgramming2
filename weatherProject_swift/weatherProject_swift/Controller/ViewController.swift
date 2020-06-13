@@ -42,8 +42,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         callDelegate()
         setupLocation()
         
-        //background color setting
-        self.view.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+       
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -67,8 +66,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         if CLLocationManager.authorizationStatus() == .authorizedWhenInUse{
             // 스마트폰으로부터 위치 정보를 받아온다.
             currentLocation = locationManager.location
-            Location.sharedInstance.latitude = currentLocation.coordinate.latitude
-            Location.sharedInstance.longitude = currentLocation.coordinate.longitude
+            if currentLocation == nil{ // 임시용 nil 강제 처리
+                Location.sharedInstance.latitude = 36
+                Location.sharedInstance.longitude = 130
+            }
+            else {
+                Location.sharedInstance.latitude = currentLocation.coordinate.latitude
+                Location.sharedInstance.longitude = currentLocation.coordinate.longitude
+            }
             
             // 위치정보를 모두 받은 뒤에, API data를 다운로드받는다.
             currentWeather.downloadCurrentWeather {
@@ -84,9 +89,22 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     // 받아온 데이터들로 업데이트 하는 함수
     func updateUI(){
         cityName.text = currentWeather.cityName
-        currentTemp.text = "\(Int(currentWeather.currentTemp))"
+        currentTemp.text = "\(Int(currentWeather.currentTemp))"+"°"
         weatherType.text = currentWeather.weatherType
         currentDate.text = currentWeather.date
+        weatherImage.image = UIImage(named: currentWeather.weatherType)
+        
+        //background color setting - case by weatherType
+        if currentWeather.weatherType == "Rain"{
+            self.view.backgroundColor = #colorLiteral(red: 0.585793674, green: 0.7097141147, blue: 0.7717325091, alpha: 1)
+        }
+        else if currentWeather.weatherType == "Clouds"{
+            self.view.backgroundColor = #colorLiteral(red: 0.5787683725, green: 0.8046938777, blue: 0.9352416396, alpha: 1)
+        }
+        else if currentWeather.weatherType == "Clear"{
+            self.view.backgroundColor = #colorLiteral(red: 0.4146773815, green: 0.821454823, blue: 0.9594151378, alpha: 1)
+        }
+        
     }
 
 }
