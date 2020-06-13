@@ -13,7 +13,6 @@ class ForecastCell: UITableViewCell {
     @IBOutlet weak var forecastTemp: UILabel!
     @IBOutlet weak var forecastDay: UILabel!
     @IBOutlet weak var forecastImage: UIImageView!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -27,7 +26,7 @@ class ForecastCell: UITableViewCell {
     
     func configureCell(forecastData: ForecastWeather){
         self.forecastDay.text = "\(forecastData.date)"
-        self.forecastTemp.text = "\(Int(forecastData.temp))" + "℃"
+        self.forecastTemp.text = "\(Int(forecastData.temp))" + "°"
         self.forecastImage.image = UIImage(named: forecastData.weather)
         
         print(forecastData.date, forecastData.temp, forecastData.weather)
