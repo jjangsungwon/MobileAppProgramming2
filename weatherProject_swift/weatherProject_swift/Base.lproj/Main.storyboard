@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--현재날씨-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="weatherProject_swift" customModuleProvider="target" sceneMemberID="viewController">
@@ -81,7 +81,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="Vwb-GO-pIY"/>
+                    <tabBarItem key="tabBarItem" title="현재날씨" id="Vwb-GO-pIY"/>
                     <connections>
                         <outlet property="cityName" destination="48R-j7-AM2" id="1M7-jt-zc9"/>
                         <outlet property="collectionView" destination="IDJ-XH-bLq" id="yVk-dL-asO"/>
@@ -95,7 +95,7 @@
             </objects>
             <point key="canvasLocation" x="1089.8550724637682" y="-188.16964285714286"/>
         </scene>
-        <!--Item-->
+        <!--날짜별 예보-->
         <scene sceneID="Scw-Sb-CUq">
             <objects>
                 <viewController id="TBv-J7-oU7" customClass="forecastViewController" customModule="weatherProject_swift" customModuleProvider="target" sceneMemberID="viewController">
@@ -149,7 +149,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GQS-hC-0Pv"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="4e0-Gg-mXU"/>
+                    <tabBarItem key="tabBarItem" title="날짜별 예보" id="4e0-Gg-mXU"/>
                     <connections>
                         <outlet property="tableView" destination="y4v-Lo-u0y" id="vi1-rB-YBs"/>
                     </connections>
