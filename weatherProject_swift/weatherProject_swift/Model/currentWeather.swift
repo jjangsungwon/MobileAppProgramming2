@@ -54,8 +54,7 @@ class CurrentWeather {
             // 올바른 날짜 형식으로 바꿔주기 위한 부분
             let conversionDate = Date(timeIntervalSince1970: tempDate!)
             let dateFormatter = DateFormatter()
-            dateFormatter.dateStyle = .medium
-            dateFormatter.timeStyle = .none
+            dateFormatter.dateFormat = "YYYY-MM-dd"
             
             let currentDate = dateFormatter.string(from: conversionDate)
             self._date = "\(currentDate)"

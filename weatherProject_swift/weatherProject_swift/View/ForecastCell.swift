@@ -29,7 +29,7 @@ class ForecastCell: UITableViewCell {
         self.forecastTemp.text = "\(Int(forecastData.temp))" + "°"
         self.forecastImage.image = UIImage(named: forecastData.weather)
         
-        print(forecastData.date, forecastData.temp, forecastData.weather)
+        //print(forecastData.date, forecastData.temp, forecastData.weather)
     }
 
 }

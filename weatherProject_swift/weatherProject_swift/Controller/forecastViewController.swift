@@ -17,6 +17,7 @@ class forecastViewController: UIViewController, CLLocationManagerDelegate{
 
     // Outlets
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var mentLabel: UILabel!
     // Constants
     let locationManager = CLLocationManager() // 사용자 위치 가져오기 위한 정의
     // Variables
@@ -31,6 +32,8 @@ class forecastViewController: UIViewController, CLLocationManagerDelegate{
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        tableView.layer.cornerRadius = 10
+        
         currentWeather = CurrentWeather()
         callDelegate()
         setupLocation()
@@ -44,8 +47,26 @@ class forecastViewController: UIViewController, CLLocationManagerDelegate{
         if self.countFlag == 0 {
             downloadForecastWeather{
                 print("Data Downloaded")
+
+                // 내일 날씨의 안내 메시지
+                let tomorrow = self.forecastArray[1].weather
+                
+                if tomorrow == "Clear"{
+                    self.mentLabel.text = "내일은 날씨가 좋아요!"
+                }
+                else if tomorrow == "Clouds"{
+                    self.mentLabel.text = "내일은 종일 흐린 날씨네요"
+                }
+                else if tomorrow == "Rain"{
+                    self.mentLabel.text = "내일 비가 오네요. 우산 챙기세요!"
+                }
+                else if tomorrow == "Thunderstorm"{
+                    self.mentLabel.text = "내일 벼락을 조심하세요."
+                }
+                
             }
             self.countFlag = 1
+
         }
     }
     
@@ -95,10 +116,7 @@ class forecastViewController: UIViewController, CLLocationManagerDelegate{
                 if let list = dictionary["daily"] as? [Dictionary<String, AnyObject>]{
                     for item in list{
                         let forecast = ForecastWeather(weatherDict: item)
-                        //if self.countFlag == 0 {
                             self.forecastArray.append(forecast)
-                        //    self.countFlag = 1
-                        //}
                     }
                     //self.forecastArray.remove(at: 0)
                     self.tableView.reloadData()
