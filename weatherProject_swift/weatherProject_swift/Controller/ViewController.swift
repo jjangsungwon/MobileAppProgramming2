@@ -142,7 +142,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
             uv.text = "높음" + "(" + "\(Double(currentWeather.uv))" + ")"
         }
         else if (currentWeather.uv <= 10){
-            uv.text = "아주 높음" + "(" + "\(Double(currentWeather.uv))" + ")"
+            uv.text = "매우 높음" + "(" + "\(Double(currentWeather.uv))" + ")"
         }
         else{
             uv.text = "위험" + "(" + "\(Double(currentWeather.uv))" + ")"
