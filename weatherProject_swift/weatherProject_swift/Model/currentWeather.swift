@@ -12,10 +12,14 @@ import SwiftyJSON
 
 class CurrentWeather {
     
-    private var _cityName: String!
-    private var _date: String!
-    private var _weatherType: String!
-    private var _currentTemp: Double!
+    private var _cityName: String!      // 지역 이름
+    private var _date: String!          // 날짜
+    private var _weatherType: String!   // 날씨 유형
+    private var _currentTemp: Double!   // 온도
+    private var _dust: Double!          // 미세먼지
+    private var _uv: Double!            // 자외선
+    private var _humidity: Double!      // 습도
+    private var _wind: Double!          // 바람 세기
     
     var cityName: String {
         if _cityName == nil{
@@ -42,6 +46,35 @@ class CurrentWeather {
         return _currentTemp
     }
     
+    var dust: Double {
+        if _dust == nil{
+            _dust = 0.0
+        }
+        return _dust
+    }
+    
+    var uv: Double {
+        if _uv == nil{
+            _uv = 0.0
+        }
+        return _uv
+    }
+    
+    var humidity: Double {
+        if _humidity == nil{
+            _humidity = 0.0
+        }
+        return _humidity
+    }
+    
+    var wind: Double {
+        if _wind == nil{
+            _wind = 0.0
+        }
+        return _wind
+    }
+    
+    
     func downloadCurrentWeather(completed: @escaping DownloadComplete){
         Alamofire.request(API_URL).responseJSON { (response) in
             let result = response.result // SUCCESS OR NOT!
@@ -61,6 +94,16 @@ class CurrentWeather {
             self._weatherType = json["weather"][0]["main"].stringValue // ex : Clouds, Clear, ...
             let downloadedTemp = json["main"]["temp"].double
             self._currentTemp = (downloadedTemp! - 273.15).rounded(toPlaces: 0) // F to C temp
+        }
+        Alamofire.request(FORECAST_API_URL).responseJSON{ (response) in
+            let result = response.result
+            let json = JSON(result.value)
+            
+            // parsing step!
+            self._dust = json["current"]["visibility"].double
+            self._uv = json["current"]["uvi"].double
+            self._humidity = json["current"]["uvi"].double
+            self._wind = json["current"]["wind_speed"].double
             completed()
         }
     }

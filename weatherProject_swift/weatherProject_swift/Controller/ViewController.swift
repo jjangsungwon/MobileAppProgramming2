@@ -16,18 +16,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     
     // Outlets
     @IBOutlet weak var cityName: UILabel!
-    
     @IBOutlet weak var weatherType: UILabel!
-    
     @IBOutlet weak var weatherImage: UIImageView!
-    
     @IBOutlet weak var currentTemp: UILabel!
-    
     @IBOutlet weak var currentDate: UILabel!
-    
     @IBOutlet weak var collectionView: UICollectionView!
-    
-    
+    @IBOutlet weak var dust: UILabel!        // 미세먼지
+    @IBOutlet weak var uv: UILabel!          // 자외선
+    @IBOutlet weak var humidity: UILabel!    // 습도
+    @IBOutlet weak var wind: UILabel!        // 바람 세기
     
     // Constants
     let locationManager = CLLocationManager() // 사용자 위치 가져오기 위한 정의
@@ -115,6 +112,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         weatherType.text = currentWeather.weatherType
         currentDate.text = currentWeather.date
         weatherImage.image = UIImage(named: currentWeather.weatherType)
+        dust.text = "\(Double(currentWeather.dust))"
+        uv.text = "\(Double(currentWeather.uv))"
+        humidity.text = "\(Double(currentWeather.humidity))"
+        wind.text = "\(Double(currentWeather.wind))"
         
         //background color setting - case by weatherType
         if currentWeather.weatherType == "Rain"{
