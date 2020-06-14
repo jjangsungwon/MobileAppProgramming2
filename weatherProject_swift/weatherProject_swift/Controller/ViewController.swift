@@ -25,6 +25,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     @IBOutlet weak var uv: UILabel!          // 자외선
     @IBOutlet weak var humidity: UILabel!    // 습도
     @IBOutlet weak var wind: UILabel!        // 바람 세기
+    @IBOutlet weak var detailView: UIView!
     
     // Constants
     let locationManager = CLLocationManager() // 사용자 위치 가져오기 위한 정의
@@ -42,7 +43,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-      
+    
         collectionView.layer.shadowColor = UIColor.black.cgColor
         collectionView.layer.shadowOpacity = 1
         collectionView.layer.shadowOffset = CGSize(width: 3, height: 3.0)
@@ -50,6 +51,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         collectionView.layer.shouldRasterize = true
         
         collectionView.layer.cornerRadius = 10
+        detailView.layer.cornerRadius = 10
         
         currentWeather = CurrentWeather()
         callDelegate()
@@ -57,6 +59,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         
         // Collection View에 미리 만들어 놓은 Cell을 연결한 부분
         self.collectionView.register(UINib(nibName: "WeatherCollectionViewCell", bundle:nil), forCellWithReuseIdentifier: "WeatherCollectionViewCell")
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
