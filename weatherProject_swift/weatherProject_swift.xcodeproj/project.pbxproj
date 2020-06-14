@@ -424,7 +424,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 77223962D27E450140649489 /* Pods-weatherProject_swift.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9MH4U7N3AM;
 				INFOPLIST_FILE = weatherProject_swift/Info.plist;
@@ -444,7 +444,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0280E6B94D77F4724E795284 /* Pods-weatherProject_swift.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9MH4U7N3AM;
 				INFOPLIST_FILE = weatherProject_swift/Info.plist;
