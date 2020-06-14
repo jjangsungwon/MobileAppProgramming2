@@ -112,10 +112,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         weatherType.text = currentWeather.weatherType
         currentDate.text = currentWeather.date
         weatherImage.image = UIImage(named: currentWeather.weatherType)
-        dust.text = "\(Double(currentWeather.dust))"
-        uv.text = "\(Double(currentWeather.uv))"
-        humidity.text = "\(Double(currentWeather.humidity))"
-        wind.text = "\(Double(currentWeather.wind))"
+        wind.text = "\(Double(currentWeather.wind))" + "m/s"
         
         //background color setting - case by weatherType
         if currentWeather.weatherType == "Rain"{
@@ -129,6 +126,30 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         }
         else if currentWeather.weatherType == "Thunderstorm"{
             self.view.backgroundColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
+        }
+        
+        // 자외선
+        if (currentWeather.uv <= 2){
+            uv.text = "낮음" + "(" + "\(Double(currentWeather.uv))" + "%)"
+        }
+        else if (currentWeather.uv <= 5){
+            uv.text = "보통" + "(" + "\(Double(currentWeather.uv))" + "%)"
+        }
+        else if (currentWeather.uv <= 7){
+            uv.text = "높음" + "(" + "\(Double(currentWeather.uv))" + "%)"
+        }
+        else if (currentWeather.uv <= 10){
+            uv.text = "아주 높음" + "(" + "\(Double(currentWeather.uv))" + "%)"
+        }
+        else{
+            uv.text = "위험" + "(" + "\(Double(currentWeather.uv))" + "%)"
+        }
+        
+        if (currentWeather.humidity >= 80){
+            humidity.text = "높음" + "(" + "\(Double(currentWeather.humidity))" + "%)"
+        }
+        else{
+            humidity.text = "낮음" + "(" + "\(Double(currentWeather.humidity))" + "%)"
         }
     }
     

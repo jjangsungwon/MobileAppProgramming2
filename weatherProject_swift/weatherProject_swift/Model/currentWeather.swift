@@ -16,7 +16,7 @@ class CurrentWeather {
     private var _date: String!          // 날짜
     private var _weatherType: String!   // 날씨 유형
     private var _currentTemp: Double!   // 온도
-    private var _dust: Double!          // 미세먼지
+
     private var _uv: Double!            // 자외선
     private var _humidity: Double!      // 습도
     private var _wind: Double!          // 바람 세기
@@ -44,13 +44,6 @@ class CurrentWeather {
             _currentTemp = 0.0
         }
         return _currentTemp
-    }
-    
-    var dust: Double {
-        if _dust == nil{
-            _dust = 0.0
-        }
-        return _dust
     }
     
     var uv: Double {
@@ -100,9 +93,8 @@ class CurrentWeather {
             let json = JSON(result.value)
             
             // parsing step!
-            self._dust = json["current"]["visibility"].double
             self._uv = json["current"]["uvi"].double
-            self._humidity = json["current"]["uvi"].double
+            self._humidity = json["current"]["humidity"].double
             self._wind = json["current"]["wind_speed"].double
             completed()
         }
