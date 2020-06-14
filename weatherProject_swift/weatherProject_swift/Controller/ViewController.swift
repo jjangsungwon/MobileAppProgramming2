@@ -133,19 +133,19 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         
         // 자외선
         if (currentWeather.uv <= 2){
-            uv.text = "낮음" + "(" + "\(Double(currentWeather.uv))" + "%)"
+            uv.text = "낮음" + "(" + "\(Double(currentWeather.uv))" + ")"
         }
         else if (currentWeather.uv <= 5){
-            uv.text = "보통" + "(" + "\(Double(currentWeather.uv))" + "%)"
+            uv.text = "보통" + "(" + "\(Double(currentWeather.uv))" + ")"
         }
         else if (currentWeather.uv <= 7){
-            uv.text = "높음" + "(" + "\(Double(currentWeather.uv))" + "%)"
+            uv.text = "높음" + "(" + "\(Double(currentWeather.uv))" + ")"
         }
         else if (currentWeather.uv <= 10){
-            uv.text = "아주 높음" + "(" + "\(Double(currentWeather.uv))" + "%)"
+            uv.text = "아주 높음" + "(" + "\(Double(currentWeather.uv))" + ")"
         }
         else{
-            uv.text = "위험" + "(" + "\(Double(currentWeather.uv))" + "%)"
+            uv.text = "위험" + "(" + "\(Double(currentWeather.uv))" + ")"
         }
         
         if (currentWeather.humidity >= 80){
