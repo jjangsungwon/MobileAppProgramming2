@@ -8,7 +8,7 @@
 </h2>
 
 <p align="center"> 현재 위치를 기반으로 날씨와 관련된 다양한 정보를 제공하는 애플리케이션</p>
-<p align="center"> <img src="./readme/application.PNG" width="800" height="400" /> </p>
+<p align="center"> <img src="./readme/application.PNG" width="700" height="400" /> </p>
 
 ---
 
