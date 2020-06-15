@@ -112,7 +112,28 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
     func updateUI(){
         cityName.text = currentWeather.cityName
         currentTemp.text = "\(Int(currentWeather.currentTemp))"+"°"
-        weatherType.text = currentWeather.weatherType
+        
+        // weather type 한글화하기
+        let rawWeather = currentWeather.weatherType
+        if (rawWeather == "Clear"){
+            weatherType.text = "맑음"
+        }
+        else if (rawWeather == "Clouds"){
+            weatherType.text = "흐림"
+        }
+        else if (rawWeather == "Rain"){
+            weatherType.text = "비"
+        }
+        else if (rawWeather == "Thunderstorm"){
+            weatherType.text = "번개"
+        }
+        else if (rawWeather == "Snow"){
+            weatherType.text = "눈"
+        }
+        else if (rawWeather == "Haze"){
+            weatherType.text = "안개"
+        }
+        
         currentDate.text = currentWeather.date
         
         if currentWeather.description == "overcast clouds"{

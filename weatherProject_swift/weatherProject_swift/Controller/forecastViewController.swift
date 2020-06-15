@@ -55,13 +55,16 @@ class forecastViewController: UIViewController, CLLocationManagerDelegate{
                     self.mentLabel.text = "내일은 날씨가 좋아요!"
                 }
                 else if tomorrow == "Clouds"{
-                    self.mentLabel.text = "내일은 종일 흐린 날씨네요"
+                    self.mentLabel.text = "내일은 흐린 날씨네요"
                 }
                 else if tomorrow == "Rain"{
                     self.mentLabel.text = "내일 비가 오네요. 우산 챙기세요!"
                 }
                 else if tomorrow == "Thunderstorm"{
                     self.mentLabel.text = "내일 벼락을 조심하세요."
+                }
+                else if tomorrow == "Snow"{
+                    self.mentLabel.text = "내일 눈이 오니 미끄럼에 주의하세요."
                 }
                 
             }
