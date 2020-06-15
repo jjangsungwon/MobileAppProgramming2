@@ -1,8 +1,8 @@
 {
   "images" : [
     {
+      "filename" : "KakaoTalk_Photo_2020-06-15-14-43-34.png",
       "idiom" : "universal",
-      "filename" : "haw-weather.png",
       "scale" : "1x"
     },
     {
@@ -15,7 +15,7 @@
     }
   ],
   "info" : {
-    "version" : 1,
-    "author" : "xcode"
+    "author" : "xcode",
+    "version" : 1
   }
 }
