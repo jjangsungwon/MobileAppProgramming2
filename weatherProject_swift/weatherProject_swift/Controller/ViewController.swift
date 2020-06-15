@@ -119,13 +119,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         
         //background color setting - case by weatherType
         if currentWeather.weatherType == "Rain"{
-            self.view.backgroundColor = #colorLiteral(red: 0.585793674, green: 0.7097141147, blue: 0.7717325091, alpha: 1)
+            self.view.backgroundColor = #colorLiteral(red: 0.5523950458, green: 0.6471269727, blue: 0.776345551, alpha: 1)
         }
         else if currentWeather.weatherType == "Clouds"{
-            self.view.backgroundColor = #colorLiteral(red: 0.5787683725, green: 0.8046938777, blue: 0.9352416396, alpha: 1)
+            self.view.backgroundColor = #colorLiteral(red: 0.7092673182, green: 0.7687676549, blue: 0.8082618117, alpha: 1)
         }
         else if currentWeather.weatherType == "Clear"{
             self.view.backgroundColor = #colorLiteral(red: 0.4146773815, green: 0.821454823, blue: 0.9594151378, alpha: 1)
+        }
+        else if currentWeather.weatherType == "Snow"{
+            self.view.backgroundColor = #colorLiteral(red: 0.3912608027, green: 0.4405822754, blue: 0.5606454611, alpha: 1)
         }
         else if currentWeather.weatherType == "Thunderstorm"{
             self.view.backgroundColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
