@@ -148,7 +148,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
             uv.text = "위험" + "(" + "\(Double(currentWeather.uv))" + ")"
         }
         
-        if (currentWeather.humidity >= 80){
+        if (currentWeather.humidity >= 70){
             humidity.text = "높음" + "(" + "\(Double(currentWeather.humidity))" + "%)"
         }
         else{
