@@ -55,22 +55,66 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Iy0-pR-Wcu">
+                                <rect key="frame" x="0.0" y="336" width="414" height="526"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ForecastCell" rowHeight="73" id="Y5J-da-eZc" customClass="ForecastCell" customModule="Weather" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="73"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Y5J-da-eZc" id="SGt-FN-l5V">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="73"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monday" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zsk-c7-E55">
+                                                    <rect key="frame" x="30" y="22" width="95" height="29"/>
+                                                    <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="25"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kfg-yh-x02">
+                                                    <rect key="frame" x="354" y="22" width="30" height="29"/>
+                                                    <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="25"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="kfg-yh-x02" secondAttribute="trailing" constant="10" id="bVa-zf-QgE"/>
+                                                <constraint firstItem="Zsk-c7-E55" firstAttribute="centerY" secondItem="SGt-FN-l5V" secondAttribute="centerY" id="jlr-P1-lCc"/>
+                                                <constraint firstItem="Zsk-c7-E55" firstAttribute="leading" secondItem="SGt-FN-l5V" secondAttribute="leadingMargin" constant="10" id="mx3-o3-Vdw"/>
+                                                <constraint firstItem="kfg-yh-x02" firstAttribute="centerY" secondItem="Zsk-c7-E55" secondAttribute="centerY" id="yA0-zy-Ft6"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="forecastDay" destination="Zsk-c7-E55" id="6am-l1-MZu"/>
+                                            <outlet property="forecastTemp" destination="kfg-yh-x02" id="vRU-Hx-CPk"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="8j4-Cn-RBs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3xU-K7-YKE"/>
                             <constraint firstItem="g1F-3g-Crv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="-50" id="4Df-D2-bUJ"/>
                             <constraint firstItem="jZS-5P-C5E" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="4dn-tG-NEy"/>
+                            <constraint firstItem="Iy0-pR-Wcu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="97o-vw-QmQ"/>
                             <constraint firstItem="8j4-Cn-RBs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DN5-2r-wz1"/>
                             <constraint firstItem="g1F-3g-Crv" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="50" id="J6b-RV-trL"/>
                             <constraint firstItem="jZS-5P-C5E" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="6" id="KOC-Nd-rxl"/>
                             <constraint firstItem="g1F-3g-Crv" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="-50" id="LJH-Vr-sGa"/>
                             <constraint firstAttribute="bottom" secondItem="g1F-3g-Crv" secondAttribute="bottom" constant="50" id="Nrp-tO-4sa"/>
                             <constraint firstItem="SMP-X0-TEh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OPZ-Xa-UC5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Iy0-pR-Wcu" secondAttribute="bottom" id="c5J-va-CBn"/>
                             <constraint firstItem="KvT-Fm-kgd" firstAttribute="top" secondItem="SMP-X0-TEh" secondAttribute="bottom" constant="6" id="cY6-OI-6Bh"/>
                             <constraint firstItem="aaF-vY-zC9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hhq-54-Mc7"/>
                             <constraint firstItem="aaF-vY-zC9" firstAttribute="top" secondItem="8j4-Cn-RBs" secondAttribute="bottom" constant="5" id="oPw-9U-VUt"/>
+                            <constraint firstItem="Iy0-pR-Wcu" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="tks-8C-Iqr"/>
                             <constraint firstItem="8j4-Cn-RBs" firstAttribute="top" secondItem="KvT-Fm-kgd" secondAttribute="bottom" constant="6" id="tvq-UM-wFV"/>
+                            <constraint firstItem="Iy0-pR-Wcu" firstAttribute="top" secondItem="aaF-vY-zC9" secondAttribute="bottom" constant="50" id="umD-JD-9Wa"/>
                             <constraint firstItem="SMP-X0-TEh" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="xeW-XU-TBd"/>
                             <constraint firstItem="KvT-Fm-kgd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="z4K-Rn-2xu"/>
                         </constraints>
@@ -81,6 +125,7 @@
                         <outlet property="currentCityTemp" destination="8j4-Cn-RBs" id="eb7-ii-F60"/>
                         <outlet property="currentDate" destination="aaF-vY-zC9" id="feh-kd-GlN"/>
                         <outlet property="specialBG" destination="g1F-3g-Crv" id="aEL-g0-Vp9"/>
+                        <outlet property="tableView" destination="Iy0-pR-Wcu" id="IMf-Wu-LAZ"/>
                         <outlet property="weatherImage" destination="KvT-Fm-kgd" id="N66-z7-qTE"/>
                         <outlet property="weatherType" destination="jZS-5P-C5E" id="4F8-ig-MLd"/>
                     </connections>
