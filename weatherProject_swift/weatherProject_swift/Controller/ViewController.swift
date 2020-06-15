@@ -114,7 +114,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         currentTemp.text = "\(Int(currentWeather.currentTemp))"+"°"
         weatherType.text = currentWeather.weatherType
         currentDate.text = currentWeather.date
-        weatherImage.image = UIImage(named: currentWeather.weatherType)
+        
+        if currentWeather.description == "overcast clouds"{
+            weatherImage.image = UIImage(named: "overcast")
+        }
+        else{
+            weatherImage.image = UIImage(named: currentWeather.weatherType)
+        }
+        
         wind.text = "\(Double(currentWeather.wind))" + "m/s"
         
         //background color setting - case by weatherType
@@ -122,10 +129,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
             self.view.backgroundColor = #colorLiteral(red: 0.5523950458, green: 0.6471269727, blue: 0.776345551, alpha: 1)
         }
         else if currentWeather.weatherType == "Clouds"{
-            self.view.backgroundColor = #colorLiteral(red: 0.7092673182, green: 0.7687676549, blue: 0.8082618117, alpha: 1)
+            if currentWeather.description == "overcast clouds"{
+                self.view.backgroundColor = #colorLiteral(red: 0.541324079, green: 0.7905240059, blue: 0.9192848206, alpha: 1)
+            }
+            else{
+                self.view.backgroundColor = #colorLiteral(red: 0.7092673182, green: 0.7687676549, blue: 0.8082618117, alpha: 1)
+            }
         }
         else if currentWeather.weatherType == "Clear"{
-            self.view.backgroundColor = #colorLiteral(red: 0.4146773815, green: 0.821454823, blue: 0.9594151378, alpha: 1)
+            self.view.backgroundColor = #colorLiteral(red: 0.4201974273, green: 0.8429673314, blue: 0.9879775643, alpha: 1)
         }
         else if currentWeather.weatherType == "Snow"{
             self.view.backgroundColor = #colorLiteral(red: 0.3912608027, green: 0.4405822754, blue: 0.5606454611, alpha: 1)

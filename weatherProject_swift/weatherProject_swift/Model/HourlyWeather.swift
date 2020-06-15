@@ -13,6 +13,7 @@ class HourlyWeather {
     private var _date:String!
     private var _weather:String!
     private var _temp:Double!
+    private var _description:String!
     
     var date: String{
         if _date == nil{
@@ -35,6 +36,13 @@ class HourlyWeather {
         return _temp
     }
     
+    var description: String{
+        if _description == nil{
+            _description = ""
+        }
+        return _description
+    }
+    
     init(weatherDict: Dictionary<String, AnyObject>){
         if let dayTemp = weatherDict["temp"] as? Double{
             let rawValue = (dayTemp - 273.15).rounded(toPlaces: 0)
@@ -47,8 +55,14 @@ class HourlyWeather {
             self._date = dateFormatter.string(from: rawDate)
         }
         if let weather = weatherDict["weather"]![0] as? Dictionary<String, AnyObject>{
-            if let main = weather["main"] as? String {
-                self._weather = main
+            let descript = weather["description"] as? String
+            if descript == "overcast clouds"{
+                self._weather = "overcast"
+            }
+            else{
+                if let main = weather["main"] as? String {
+                    self._weather = main
+                }
             }
         }
     }

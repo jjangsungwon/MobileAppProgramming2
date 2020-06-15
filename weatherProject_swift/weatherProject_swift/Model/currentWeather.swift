@@ -16,6 +16,7 @@ class CurrentWeather {
     private var _date: String!          // 날짜
     private var _weatherType: String!   // 날씨 유형
     private var _currentTemp: Double!   // 온도
+    private var _description: String! // 날씨 설명
 
     private var _uv: Double!            // 자외선
     private var _humidity: Double!      // 습도
@@ -39,6 +40,14 @@ class CurrentWeather {
         }
         return _weatherType
     }
+    
+    var description: String{
+        if _description == nil{
+            _description = ""
+        }
+        return _description
+    }
+    
     var currentTemp: Double {
         if _currentTemp == nil{
             _currentTemp = 0.0
@@ -85,6 +94,8 @@ class CurrentWeather {
             let currentDate = dateFormatter.string(from: conversionDate)
             self._date = "\(currentDate)"
             self._weatherType = json["weather"][0]["main"].stringValue // ex : Clouds, Clear, ...
+            self._description = json["weather"][0]["description"].stringValue // ex : overcast clouds..
+            
             let downloadedTemp = json["main"]["temp"].double
             self._currentTemp = (downloadedTemp! - 273.15).rounded(toPlaces: 0) // F to C temp
         }

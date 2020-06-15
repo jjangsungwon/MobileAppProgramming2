@@ -13,6 +13,7 @@ class ForecastWeather {
     private var _date:String!
     private var _weather:String!
     private var _temp:Double!
+    private var _description:String!
     
     var date: String{
         if _date == nil{
@@ -35,6 +36,13 @@ class ForecastWeather {
         return _temp
     }
     
+    var description: String{
+        if _description == nil{
+            _description = ""
+        }
+        return _description
+    }
+    
     init(weatherDict: Dictionary<String, AnyObject>){
         if let temp = weatherDict["temp"] as? Dictionary<String, AnyObject>{
             if let dayTemp = temp["day"] as? Double {
@@ -50,8 +58,14 @@ class ForecastWeather {
             self._date = dateFormatter.string(from: rawDate)
         }
         if let weather = weatherDict["weather"]![0] as? Dictionary<String, AnyObject>{
-            if let main = weather["main"] as? String {
-                self._weather = main
+            let descript = weather["description"] as? String
+            if descript == "overcast clouds"{
+                self._weather = "overcast"
+            }
+            else{
+                if let main = weather["main"] as? String {
+                    self._weather = main
+                }
             }
         }
     }
