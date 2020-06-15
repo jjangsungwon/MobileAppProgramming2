@@ -4,7 +4,7 @@
 </h1>
 
 <h2 align="center">
-  Swift OpenWeather App
+  Swift Open Weather App
 </h2>
 
 <p align="center"> 현재 위치를 기반으로 날씨와 관련된 다양한 정보를 제공하는 애플리케이션</p>
@@ -36,6 +36,8 @@ pod 'SwiftyJSON'
 ```
 open xcodeworkspace
 ```
+### Execute
+- Simulator 혹은 휴대폰을 연결하여 실행
 ---
 
 ### 🚀 　오픈 소스 주소
