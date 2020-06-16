@@ -33,7 +33,11 @@ pod init
 pod 'Alamofire', '~> 4.5'
 pod 'SwiftyJSON'
 ```
-3. xcodeworkspace를 열어서 실행한다
+3. pod를 설치한다.
+```
+pod install
+```
+4. xcodeworkspace를 열어서 실행한다
 ```
 open xcodeworkspace
 ```
