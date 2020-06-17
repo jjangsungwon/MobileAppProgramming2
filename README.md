@@ -10,7 +10,10 @@
 <p align="center"> 현재 위치를 기반으로 날씨와 관련된 다양한 정보를 제공하는 애플리케이션</p>
 <p align="center"> <img src="./readme/application.PNG" width="700" height="400" /> </p>
 
+
 ---
+
+
 
 ## 📋 　기능
 ✔ 　실시간 날씨(온도, 습도, 자외선, 바람 세기) 정보 제공  
@@ -32,7 +35,11 @@ pod init
 pod 'Alamofire', '~> 4.5'
 pod 'SwiftyJSON'
 ```
-3. xcodeworkspace를 열어서 실행한다
+3. pod를 설치한다.
+```
+pod install
+```
+4. xcodeworkspace를 열어서 실행한다
 ```
 open xcodeworkspace
 ```
