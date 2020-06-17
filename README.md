@@ -12,14 +12,14 @@
 
 
 
-## 📋 　기능
+# 📋 　기능
 ✔ 　실시간 날씨(온도, 습도, 자외선, 바람 세기) 정보 제공  
 ✔ 　현재 시간을 기준으로 12시간(1시간 단위) 날씨 정보 제공  
 ✔ 　현재 날짜를 기준으로 7일(1일 단위) 날씨 정보 제공  
 ✔ 　날씨에 따른 문구 알림(ex) 비, 눈이 오는 경우 미리 준비할 수 있도록 한다.)  
 ✔ 　애플리케이션을 실행하는 것만으로도 새로운 정보를 받아올 수 있다.  
 
-## ✋ 　실행하는 법
+# ✋ 　실행하는 법
 ### Clone
 - MobileAppProgramming2 repository를 clone 하여 본인의 컴퓨터로 가져온다.
 ### Pod Setup
@@ -45,10 +45,10 @@ open xcodeworkspace
 
 
 
-## 🎬 　데모 영상
+# 🎬 　데모 영상
 ![dedo](https://user-images.githubusercontent.com/41226054/84910159-7e40bc00-b0f1-11ea-9422-824e63184c07.gif)
 
-### 🚀 　오픈 소스 주소
+# 🚀 　오픈 소스 주소
 
 https://openweathermap.org/ 에서 API Key를 발급받은 후 CurrentWeather Data와 One Call API를 사용하였습니다.
 ## Current Weather
