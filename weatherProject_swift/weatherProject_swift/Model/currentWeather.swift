@@ -14,6 +14,7 @@ class CurrentWeather {
     
     private var _cityName: String!      // 지역 이름
     private var _date: String!          // 날짜
+    private var _hour: String!
     private var _weatherType: String!   // 날씨 유형
     private var _currentTemp: Double!   // 온도
     private var _description: String! // 날씨 설명
@@ -33,6 +34,12 @@ class CurrentWeather {
             _date = ""
         }
         return _date
+    }
+    var hour: String {
+        if _hour == nil{
+            _hour = ""
+        }
+        return _hour
     }
     var weatherType: String {
         if _weatherType == nil{
@@ -89,9 +96,13 @@ class CurrentWeather {
             // 올바른 날짜 형식으로 바꿔주기 위한 부분
             let conversionDate = Date(timeIntervalSince1970: tempDate!)
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "YYYY-MM-dd"
+            dateFormatter.dateFormat = "YYYY년 MM월 dd일 - HH시 현재"
+            let dateFormatterForHour = DateFormatter()
+            dateFormatterForHour.dateFormat = "HH"
             
+            let currentHour = dateFormatterForHour.string(from: conversionDate)
             let currentDate = dateFormatter.string(from: conversionDate)
+            self._hour = "\(currentHour)"
             self._date = "\(currentDate)"
             self._weatherType = json["weather"][0]["main"].stringValue // ex : Clouds, Clear, ...
             self._description = json["weather"][0]["description"].stringValue // ex : overcast clouds..

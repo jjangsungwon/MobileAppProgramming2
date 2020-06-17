@@ -136,8 +136,22 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         
         currentDate.text = currentWeather.date
         
-        if currentWeather.description == "overcast clouds"{
+        let rawHour = (Int)(currentWeather.hour)
+        
+        if currentWeather.description == "overcast clouds" && rawHour! >= 6 && rawHour! <= 18 {
             weatherImage.image = UIImage(named: "overcast")
+        }
+        else if currentWeather.description == "overcast clouds"
+            && ( (rawHour! >= 19 && rawHour! <= 23) || (rawHour! >= 0 && rawHour! <= 5)) {
+            weatherImage.image = UIImage(named: "overcastMoon")
+        }
+        else if currentWeather.description == "Clear"
+            && rawHour! >= 6 && rawHour! <= 18 {
+            weatherImage.image = UIImage(named: "Clear")
+        }
+        else if currentWeather.description == "Clear"
+            && ( (rawHour! >= 19 && rawHour! <= 23) || (rawHour! >= 0 && rawHour! <= 5))  {
+            weatherImage.image = UIImage(named: "ClearMoon")
         }
         else{
             weatherImage.image = UIImage(named: currentWeather.weatherType)
@@ -146,7 +160,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
         wind.text = "\(Double(currentWeather.wind))" + "m/s"
         
         //background color setting - case by weatherType
-        if currentWeather.weatherType == "Rain"{
+        if ((rawHour! >= 19 && rawHour! <= 23) || (rawHour! >= 0 && rawHour! <= 5)){
+            self.view.backgroundColor = #colorLiteral(red: 0.373267591, green: 0.5139936805, blue: 0.7178499103, alpha: 1)
+        }
+        else if currentWeather.weatherType == "Rain"{
             self.view.backgroundColor = #colorLiteral(red: 0.5523950458, green: 0.6471269727, blue: 0.776345551, alpha: 1)
         }
         else if currentWeather.weatherType == "Clouds"{
