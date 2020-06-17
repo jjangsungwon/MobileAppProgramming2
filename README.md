@@ -11,9 +11,6 @@
 <p align="center"> <img src="./readme/application.PNG" width="700" height="400" /> </p>
 
 
----
-
-
 
 ## 📋 　기능
 ✔ 　실시간 날씨(온도, 습도, 자외선, 바람 세기) 정보 제공  
@@ -45,9 +42,16 @@ open xcodeworkspace
 ```
 ### Execute
 - Simulator 혹은 휴대폰을 연결하여 실행
----
+
+
+
+## 🎬 　데모 영상
+<iframe width="800" height="600" src="https://www.youtube.com/embed/fAbfCPyrGQg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
 
 ### 🚀 　오픈 소스 주소
+
 https://openweathermap.org/ 에서 API Key를 발급받은 후 CurrentWeather Data와 One Call API를 사용하였습니다.
 ## Current Weather
 ```
