@@ -46,7 +46,7 @@ open xcodeworkspace
 
 
 ## 🎬 　데모 영상
-<iframe width="800" height="600" src="https://www.youtube.com/embed/fAbfCPyrGQg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+![dedo](https://user-images.githubusercontent.com/41226054/84910159-7e40bc00-b0f1-11ea-9422-824e63184c07.gif)
 
 
 
