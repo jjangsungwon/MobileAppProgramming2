@@ -50,6 +50,9 @@ open xcodeworkspace
 
 
 
+## 🎬 　데모 영상
+[![Open Weather](https://i.imgur.com/GzJuajo.png)](https://youtu.be/fAbfCPyrGQg)
+
 ### 🚀 　오픈 소스 주소
 
 https://openweathermap.org/ 에서 API Key를 발급받은 후 CurrentWeather Data와 One Call API를 사용하였습니다.

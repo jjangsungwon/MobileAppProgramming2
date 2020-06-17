@@ -32,7 +32,24 @@ class WeatherCollectionViewCell: UICollectionViewCell {
     func configureCell(HourlyData: HourlyWeather){
         self.date.text = "\(HourlyData.date)"+"시"
         self.tempLabel.text = "\(Int(HourlyData.temp))"+"°"
-        self.iconImageView.image = UIImage(named: HourlyData.weather)
+        
+        let TypeForHour = (Int)(HourlyData.date)
+        
+        if (TypeForHour! >= 19 && TypeForHour! <= 23 && HourlyData.weather=="Clear") {
+            self.iconImageView.image = UIImage(named: "ClearMoon")
+        }
+        else if (TypeForHour! >= 0 && TypeForHour! <= 5 && HourlyData.weather=="Clear") {
+            self.iconImageView.image = UIImage(named: "ClearMoon")
+        }
+        else if (TypeForHour! >= 19 && TypeForHour! <= 23 && HourlyData.weather=="overcast") {
+            self.iconImageView.image = UIImage(named: "overcastMoon")
+        }
+        else if (TypeForHour! >= 0 && TypeForHour! <= 5 && HourlyData.weather=="overcast") {
+            self.iconImageView.image = UIImage(named: "overcastMoon")
+        }
+        else{
+            self.iconImageView.image = UIImage(named: HourlyData.weather)
+        }
         
     }
     
